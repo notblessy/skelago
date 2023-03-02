@@ -17,7 +17,7 @@ type welcomeRepo struct {
 	db *gorm.DB
 }
 
-var welcomeColumns = []string{"id", "name", "price", "description", "quantity", "created_at", "updated_at"}
+var welcomeColumns = []string{"id", "message", "created_at", "updated_at"}
 
 func initPostgreMock() (db *gorm.DB, mock sqlmock.Sqlmock) {
 	mockDB, mock, err := sqlmock.New()
@@ -55,7 +55,7 @@ func TestWelcomeRepo_Create(t *testing.T) {
 		queryResult := sqlmock.NewRows([]string{"id"}).
 			AddRow(welcome.ID)
 		sqlMock.ExpectQuery("INSERT INTO \"welcomes\"").
-			WithArgs(sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg()).
+			WithArgs(sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg()).
 			WillReturnRows(queryResult)
 		sqlMock.ExpectCommit()
 
@@ -110,7 +110,7 @@ func TestWelcomeRepo_FindAll(t *testing.T) {
 		assert.NoError(t, err)
 	})
 
-	t.Run("Success", func(t *testing.T) {
+	t.Run("Error", func(t *testing.T) {
 		sqlMock.ExpectBegin()
 
 		dbMock.Begin()

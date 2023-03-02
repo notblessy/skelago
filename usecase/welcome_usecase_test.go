@@ -8,6 +8,7 @@ import (
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/golang/mock/gomock"
 	"github.com/notblessy/skelago/model"
+	"github.com/notblessy/skelago/model/mock"
 	"github.com/notblessy/skelago/utils"
 	"github.com/stretchr/testify/assert"
 	"gorm.io/driver/postgres"
