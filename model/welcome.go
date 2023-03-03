@@ -29,7 +29,7 @@ type WelcomeUsecase interface {
 // Welcome :nodoc:
 type Welcome struct {
 	ID        string    `gorm:"type:varchar(128)" json:"id"`
-	Message   string    `gorm:"type:varchar(128)" json:"name" validate:"required"`
+	Message   string    `gorm:"type:varchar(128)" json:"message" validate:"required"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 }

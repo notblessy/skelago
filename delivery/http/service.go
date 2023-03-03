@@ -22,6 +22,6 @@ func (h *HTTPService) RegisterWelcomeUsecase(p model.WelcomeUsecase) {
 
 // Routes :nodoc:
 func (h *HTTPService) Routes(route *echo.Echo) {
-	route.POST("/products", h.createWelcomeHandler)
-	route.GET("/products", h.findAllWelcomeHandler)
+	route.POST("/welcomes", h.createWelcomeHandler)
+	route.GET("/welcomes", h.findAllWelcomeHandler)
 }
